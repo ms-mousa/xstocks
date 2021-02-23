@@ -1,0 +1,84 @@
+{
+  "routes": [
+      {
+      "method": "GET",
+      "path": "/stocks/search/:query",
+      "handler": "stock.search",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stocks",
+      "handler": "stock.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stocks/get-news/:symbol",
+      "handler": "stock.getNews",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stocks/count",
+      "handler": "stock.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stocks/:id",
+      "handler": "stock.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/stocks/:id/company",
+      "handler": "stock.getCompany",
+      "config": {
+        "policies": []
+      }
+    },
+     {
+      "method": "GET",
+      "path": "/stocks/:id/chart/:period",
+      "handler": "stock.getChart",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/stocks",
+      "handler": "stock.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/stocks/:id",
+      "handler": "stock.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/stocks/:id",
+      "handler": "stock.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

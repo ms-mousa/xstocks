@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolios",
+  "info": {
+    "name": "portfolio"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false,
+    "privateAttributes": [
+      "id",
+      "updatedAt",
+      "__v",
+      "user"
+    ]
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "positions": {
+      "collection": "position"
+    },
+    "chart_data": {
+      "type": "json"
+    }
+  }
+}

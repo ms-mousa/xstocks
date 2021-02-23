@@ -1,0 +1,49 @@
+{
+  "name": "@xstocks/backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "^2.2.1",
+    "yarn": "^1.22.10"
+  },
+  "dependencies": {
+    "@xstocks/data": "1.0.0",
+    "axios": "^0.21.1",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.flatten": "^4.4.0",
+    "lodash.mapkeys": "^4.6.0",
+    "lodash.transform": "^4.6.0",
+    "lodash.uniq": "^4.5.0",
+    "numeral": "^2.0.6",
+    "strapi": "3.3.4",
+    "strapi-admin": "3.3.4",
+    "strapi-connector-mongoose": "3.3.4",
+    "strapi-plugin-content-manager": "3.3.4",
+    "strapi-plugin-content-type-builder": "3.3.4",
+    "strapi-plugin-email": "3.3.4",
+    "strapi-plugin-upload": "3.3.4",
+    "strapi-plugin-users-permissions": "3.3.4",
+    "strapi-utils": "3.3.4"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "20b24bbf-c820-407d-987d-d5d11b08cb63"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

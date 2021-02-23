@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "positions",
+  "info": {
+    "name": "position",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false,
+    "populateCreatorFields": true,
+    "privateAttributes": [
+      "id",
+      "updatedAt",
+      "user"
+    ]
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "symbol": {
+      "type": "string",
+      "required": true
+    },
+    "purchase_price": {
+      "type": "decimal",
+      "required": true
+    },
+    "units": {
+      "type": "decimal",
+      "required": true
+    },
+    "open": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "closed_value": {
+      "type": "decimal"
+    },
+    "close_date": {
+      "type": "datetime"
+    },
+    "purchase_value": {
+      "type": "decimal"
+    }
+  }
+}
