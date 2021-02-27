@@ -1,4 +1,5 @@
-import { Box, Center, Flex, useColorModeValue, useToken, Image } from '@chakra-ui/react';
+import { Center, Flex, useColorModeValue, useToken, Image } from '@chakra-ui/react';
+import { LoginForm } from '../components/LoginPage/LoginForm';
 
 const LoginPage = (): JSX.Element => {
   const bgColor = useColorModeValue('gray.200', 'gray.700');
@@ -10,7 +11,7 @@ const LoginPage = (): JSX.Element => {
         <Center flex="0 0 50%" bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}>
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
-        <Box>Form</Box>
+        <LoginForm />
       </Flex>
     </Center>
   );
