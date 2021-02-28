@@ -1,4 +1,13 @@
-import { Alert, Box, Button, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Text,
+  FormHelperText,
+} from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -26,10 +35,22 @@ export const LoginForm = (): JSX.Element => (
       }}
       validationSchema={loginSchema}
     >
-      {({ errors, touched, isSubmitting }) => (
+      {({ errors, touched, isSubmitting, values, setFieldValue }) => (
         <Form>
-          <Field id="username" name="username" />
-          {touched?.username && errors?.username && <Alert>{errors.username}</Alert>}
+          <FormControl isInvalid={!!errors.username && !!touched.username}>
+            <FormLabel htmlFor="username">Username:</FormLabel>
+            <Input
+              value={values.username}
+              onChange={(e) => {
+                setFieldValue('username', e.target.value);
+              }}
+              name="username"
+              variant="filled"
+            />
+            {errors.username && touched.username && (
+              <FormHelperText>{errors.username}</FormHelperText>
+            )}
+          </FormControl>
           <Button type="submit" isLoading={isSubmitting}>
             Login
           </Button>
