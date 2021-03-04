@@ -7,9 +7,11 @@ import {
   Input,
   Text,
   FormHelperText,
+  Icon,
 } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { FiUser } from 'react-icons/fi';
 import { InputField } from '../Forms/InputField';
 
 const loginSchema = Yup.object().shape({
@@ -38,7 +40,11 @@ export const LoginForm = (): JSX.Element => (
     >
       {({ isSubmitting }) => (
         <Form>
-          <InputField name="username" label="Username:" />
+          <InputField
+            leftAddonElement={<Icon as={FiUser} color="gray.500" />}
+            label="Username:"
+            name="username"
+          />
           <Button type="submit" isLoading={isSubmitting}>
             Login
           </Button>
