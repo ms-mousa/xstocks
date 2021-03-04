@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import { InputField } from '../Forms/InputField';
 
 const loginSchema = Yup.object().shape({
   username: Yup.string()
@@ -35,22 +36,9 @@ export const LoginForm = (): JSX.Element => (
       }}
       validationSchema={loginSchema}
     >
-      {({ errors, touched, isSubmitting, values, setFieldValue }) => (
+      {({ isSubmitting }) => (
         <Form>
-          <FormControl isInvalid={!!errors.username && !!touched.username}>
-            <FormLabel htmlFor="username">Username:</FormLabel>
-            <Input
-              value={values.username}
-              onChange={(e) => {
-                setFieldValue('username', e.target.value);
-              }}
-              name="username"
-              variant="filled"
-            />
-            {errors.username && touched.username && (
-              <FormHelperText>{errors.username}</FormHelperText>
-            )}
-          </FormControl>
+          <InputField name="username" label="Username:" />
           <Button type="submit" isLoading={isSubmitting}>
             Login
           </Button>
