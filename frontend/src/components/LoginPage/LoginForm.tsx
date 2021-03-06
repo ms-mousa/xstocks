@@ -9,7 +9,7 @@ import {
   Alert,
   AlertIcon,
 } from '@chakra-ui/react';
-import { Form, Formik } from 'formik';
+import { Form, Formik, FormikValues } from 'formik';
 import { useRouter } from 'next/dist/client/router';
 import { FiAlertTriangle, FiHome, FiUser } from 'react-icons/fi';
 import { useAuth } from '../../hooks/useAuth';
@@ -21,6 +21,14 @@ export const LoginForm = (): JSX.Element => {
   const { loginUser, error } = useAuth();
   const { notifySuccess } = useNotifications();
   const router = useRouter();
+
+  const handleSubmit = async (values: FormikValues) => {
+    const res = await loginUser(values.username, values.password);
+    if (res.user) {
+      notifySuccess('Logged in successfully', 'Redirecting to homepage');
+      router.push('/');
+    }
+  };
 
   return (
     <Box w="100%" p="4">
@@ -35,16 +43,10 @@ export const LoginForm = (): JSX.Element => {
           username: '',
           password: '',
         }}
-        onSubmit={async (values) => {
-          const res = await loginUser(values.username, values.password);
-          if (res.user) {
-            notifySuccess('Logged in successfully', 'Redirecting to homepage');
-            router.push('/');
-          }
-        }}
+        onSubmit={handleSubmit}
         validationSchema={loginSchema}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, values }) => (
           <Form>
             <Stack spacing="2">
               <InputField
@@ -71,7 +73,11 @@ export const LoginForm = (): JSX.Element => {
                   {error}
                 </Alert>
               )}
-              <Button type="submit" isLoading={isSubmitting}>
+              <Button
+                isDisabled={!values.username || !values.password}
+                type="submit"
+                isLoading={isSubmitting}
+              >
                 Login
               </Button>
 
