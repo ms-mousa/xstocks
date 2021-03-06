@@ -10,13 +10,18 @@ import {
   AlertIcon,
 } from '@chakra-ui/react';
 import { Form, Formik } from 'formik';
+import { useRouter } from 'next/dist/client/router';
 import { FiAlertTriangle, FiHome, FiUser } from 'react-icons/fi';
 import { useAuth } from '../../hooks/useAuth';
+import { useNotifications } from '../../hooks/useNotifications';
 import { loginSchema } from '../../lib/formSchemas';
 import { InputField } from '../Forms/InputField';
 
 export const LoginForm = (): JSX.Element => {
   const { loginUser, error } = useAuth();
+  const { notifySuccess } = useNotifications();
+  const router = useRouter();
+
   return (
     <Box w="100%" p="4">
       <Box my="4" textAlign="center">
@@ -32,6 +37,10 @@ export const LoginForm = (): JSX.Element => {
         }}
         onSubmit={async (values) => {
           const res = await loginUser(values.username, values.password);
+          if (res.user) {
+            notifySuccess('Logged in successfully', 'Redirecting to homepage');
+            router.push('/');
+          }
         }}
         validationSchema={loginSchema}
       >
