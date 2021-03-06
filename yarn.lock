@@ -1462,6 +1462,14 @@
     "@types/tinycolor2" "1.4.2"
     tinycolor2 "1.4.2"
 
+"@chakra-ui/theme@1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-1.6.1.tgz#e7cdedb013ebc58031b4ab3b37314d2909c0e0af"
+  integrity sha512-9zrPG1osrV+N7RROrr/m+6JWWvvAPpElBLmbjPSzrf3JlxxD+3xDgLCOrZ/C0GzdVtgfyE5584W4VXWoA4OqXw==
+  dependencies:
+    "@chakra-ui/theme-tools" "1.0.4"
+    "@chakra-ui/utils" "1.2.0"
+
 "@chakra-ui/theme@1.6.2":
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-1.6.2.tgz#6d1ff9ca0fb8461615cae9eb785e51c5faad6703"
@@ -1470,15 +1478,15 @@
     "@chakra-ui/theme-tools" "1.0.4"
     "@chakra-ui/utils" "1.2.0"
 
-"@chakra-ui/toast@1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@chakra-ui/toast/-/toast-1.1.11.tgz#1576385315fd894a6ae3fe2d56dacdb8072e9e2c"
-  integrity sha512-joeNDETyPIKdwc0YAq/Qjr68SriJU1nTH9KIkuGwmntHE859DtIhwXtAg7k4ZRoSTFEm3/xtFN7yk2aGhueO1w==
+"@chakra-ui/toast@1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/toast/-/toast-1.1.10.tgz#123ccbe2a7a60a1fd227706eb21da1411890cedf"
+  integrity sha512-pxI+GXMOyzkf012NMRNiBAZmTfRf+8829mbOGPhAr3Ce6N/mlv0Tu8X4BfzhSk1iEV4uWDMZ+dq3uhCtK2EttA==
   dependencies:
     "@chakra-ui/alert" "1.1.1"
     "@chakra-ui/close-button" "1.1.1"
     "@chakra-ui/hooks" "1.1.4"
-    "@chakra-ui/theme" "1.6.2"
+    "@chakra-ui/theme" "1.6.1"
     "@chakra-ui/transition" "1.0.8"
     "@chakra-ui/utils" "1.2.0"
     "@reach/alert" "0.13.0"

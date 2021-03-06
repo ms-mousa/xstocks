@@ -9,7 +9,6 @@ import {
   AlertIcon,
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
-import { useRouter } from 'next/dist/client/router';
 import { FiAlertTriangle, FiMail } from 'react-icons/fi';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotifications } from '../../hooks/useNotifications';
@@ -17,15 +16,16 @@ import { passwordResetSchema } from '../../lib/formSchemas';
 import { InputField } from '../Forms/InputField';
 
 export const ForgottenPasswordForm = (): JSX.Element => {
-  const { loginUser, error } = useAuth();
+  const { forgotPassword, error } = useAuth();
   const { notifySuccess } = useNotifications();
-  const router = useRouter();
 
   const handleSubmit = async (values: FormikValues) => {
-    const res = await loginUser(values.username, values.password);
-    if (res.user) {
-      notifySuccess('Logged in successfully', 'Redirecting to homepage');
-      router.push('/');
+    const res = await forgotPassword(values.email);
+    if (res.ok) {
+      notifySuccess(
+        'Password reset successfully',
+        'Email sent with link to set a new password',
+      );
     }
   };
 

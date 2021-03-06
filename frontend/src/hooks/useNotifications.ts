@@ -8,7 +8,7 @@ export function useNotifications(): IUseNotifications {
   const toastMaker = useToast({
     isClosable: true,
     position: 'bottom',
-    duration: 2000,
+    duration: 3000,
   });
 
   const notifySuccess = (title: string, description: string) => {
