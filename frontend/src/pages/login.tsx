@@ -1,4 +1,6 @@
 import { Center, Flex, useColorModeValue, useToken, Image } from '@chakra-ui/react';
+import React from 'react';
+import { ForgottenPasswordForm } from '../components/LoginPage/ForgottenPasswordForm';
 import { LoginForm } from '../components/LoginPage/LoginForm';
 
 const LoginPage = (): JSX.Element => {
@@ -19,7 +21,8 @@ const LoginPage = (): JSX.Element => {
         <Center flex="0 0 50%" bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}>
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
-        <LoginForm />
+        {/* <LoginForm /> */}
+        <ForgottenPasswordForm />
       </Flex>
     </Center>
   );
