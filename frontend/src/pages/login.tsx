@@ -7,7 +7,15 @@ const LoginPage = (): JSX.Element => {
 
   return (
     <Center h="100vh">
-      <Flex overflow="hidden" bg={bgColor} rounded="md" boxShadow="sm" w="40vw" h="20vh">
+      <Flex
+        overflow="hidden"
+        bg={bgColor}
+        rounded="md"
+        boxShadow="sm"
+        w="40vw"
+        maxW="700px"
+        minH="20vh"
+      >
         <Center flex="0 0 50%" bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}>
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
