@@ -12,6 +12,8 @@ import {
 import { Form, Formik, FormikValues } from 'formik';
 import { useRouter } from 'next/dist/client/router';
 import { FiAlertTriangle, FiHome, FiUser } from 'react-icons/fi';
+import { LoginPageSections } from '../../@types/global';
+import { navigateToLoginPageSection } from '../../helpers/router';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotifications } from '../../hooks/useNotifications';
 import { loginSchema } from '../../lib/formSchemas';
@@ -63,7 +65,14 @@ export const LoginForm = (): JSX.Element => {
               />
               <Flex fontSize="xs" align="center" justify="flex-end">
                 <Icon as={FiHome} />
-                <Button variant="link" fontSize="xs" ml="1">
+                <Button
+                  onClick={() => {
+                    navigateToLoginPageSection(LoginPageSections.ForgotPassword);
+                  }}
+                  variant="link"
+                  fontSize="xs"
+                  ml="1"
+                >
                   Forgotten password?
                 </Button>
               </Flex>
@@ -83,7 +92,14 @@ export const LoginForm = (): JSX.Element => {
 
               <Flex justify="center" align="baseline">
                 <Text fontSize="xs">Don&apos;t have an account?</Text>
-                <Button variant="link" fontSize="xs" ml="1">
+                <Button
+                  onClick={() => {
+                    navigateToLoginPageSection(LoginPageSections.NewAccount);
+                  }}
+                  variant="link"
+                  fontSize="xs"
+                  ml="1"
+                >
                   Create one here.
                 </Button>
               </Flex>
