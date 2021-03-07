@@ -13,17 +13,21 @@ const LoginPage = (): JSX.Element => {
   const sectionQuery = section?.toString();
 
   return (
-    <Center h="100vh">
+    <Center h="100vh" p="2">
       <Flex
         overflow="hidden"
         bg={bgColor}
+        direction={['column', 'column', 'row', 'row']}
         rounded="md"
         boxShadow="sm"
-        w="40vw"
+        w={['unset', 'unset', '60vw', '40vw']}
         maxW="700px"
-        minH="20vh"
       >
-        <Center flex="0 0 50%" bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}>
+        <Center
+          minH="20vh"
+          flex="0 0 50%"
+          bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}
+        >
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
         <Box w="100%" p="4">
