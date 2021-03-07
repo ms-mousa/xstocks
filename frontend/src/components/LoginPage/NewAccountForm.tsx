@@ -12,7 +12,7 @@ import { Form, Formik, FormikValues } from 'formik';
 import { FiAlertTriangle, FiAtSign, FiLock, FiMail, FiUser } from 'react-icons/fi';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotifications } from '../../hooks/useNotifications';
-import { passwordResetSchema } from '../../lib/formSchemas';
+import { signUpSchema } from '../../lib/formSchemas';
 import { InputField } from '../Forms/InputField';
 
 export const NewAccountForm = (): JSX.Element => {
@@ -44,14 +44,14 @@ export const NewAccountForm = (): JSX.Element => {
       </Box>
       <Formik
         initialValues={{
-          firsName: '',
+          firstName: '',
           lastName: '',
           email: '',
           password: '',
           passwordConfirmation: '',
         }}
         onSubmit={handleSubmit}
-        validationSchema={passwordResetSchema}
+        validationSchema={signUpSchema}
       >
         {({ isSubmitting, values }) => (
           <Form>
