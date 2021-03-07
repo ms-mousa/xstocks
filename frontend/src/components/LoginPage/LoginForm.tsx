@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
 import { useRouter } from 'next/dist/client/router';
-import { FiAlertTriangle, FiHome, FiUser } from 'react-icons/fi';
+import { FiAlertTriangle, FiHome, FiLogIn, FiUser } from 'react-icons/fi';
 import { LoginPageSections } from '../../@types/global';
 import { navigateToLoginPageSection } from '../../helpers/router';
 import { useAuth } from '../../hooks/useAuth';
@@ -94,6 +94,8 @@ export const LoginForm = (): JSX.Element => {
               <Button
                 isDisabled={!values.username || !values.password}
                 type="submit"
+                colorScheme="purple"
+                leftIcon={<FiLogIn />}
                 isLoading={isSubmitting}
               >
                 Login

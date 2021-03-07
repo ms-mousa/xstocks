@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
 import { useRouter } from 'next/router';
-import { FiAlertTriangle, FiArrowLeft, FiMail } from 'react-icons/fi';
+import { FiAlertTriangle, FiArrowLeft, FiMail, FiRefreshCcw } from 'react-icons/fi';
 import { LoginPageSections } from '../../@types/global';
 import { navigateToLoginPageSection } from '../../helpers/router';
 import { useAuth } from '../../hooks/useAuth';
@@ -80,7 +80,13 @@ export const ForgottenPasswordForm = (): JSX.Element => {
                     {error}
                   </Alert>
                 )}
-                <Button isDisabled={!values.email} type="submit" isLoading={isSubmitting}>
+                <Button
+                  colorScheme="purple"
+                  isDisabled={!values.email}
+                  type="submit"
+                  leftIcon={<FiRefreshCcw />}
+                  isLoading={isSubmitting}
+                >
                   Reset Password
                 </Button>
               </Stack>
