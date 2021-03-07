@@ -9,22 +9,24 @@ import {
   AlertIcon,
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
-import { FiAlertTriangle, FiAtSign, FiLock, FiMail, FiUser } from 'react-icons/fi';
+import { useRouter } from 'next/dist/client/router';
+import { FiAlertTriangle, FiAtSign, FiLock, FiUser } from 'react-icons/fi';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotifications } from '../../hooks/useNotifications';
 import { signUpSchema } from '../../lib/formSchemas';
 import { InputField } from '../Forms/InputField';
 
 export const NewAccountForm = (): JSX.Element => {
-  const { error } = useAuth();
+  const { error, signUp } = useAuth();
+  const { notifySuccess } = useNotifications();
+  const router = useRouter();
   const handleSubmit = async (values: FormikValues) => {
-    // const res = await forgotPassword(values.email);
-    // if (res.ok) {
-    //   notifySuccess(
-    //     'Password reset successfully',
-    //     'Email sent with link to set a new password',
-    //   );
-    // }
+    const { firstName, lastName, email, password } = values;
+    const res = await signUp(firstName, lastName, email, password);
+    if (res?.user) {
+      notifySuccess('Account created successfully', 'Redirecting to homepage');
+      router.push('/');
+    }
   };
 
   const isFormIncomplete = (values: FormikValues) =>

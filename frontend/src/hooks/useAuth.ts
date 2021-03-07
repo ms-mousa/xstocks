@@ -5,10 +5,21 @@ interface IUseAuth {
   error: string | null;
   loginUser: (username: string, password: string) => any;
   forgotPassword: (email: string) => any;
+  signUp: (firstName: string, lastName: string, email: string, password: string) => any;
 }
 
 export function useAuth(): IUseAuth {
   const [error, setError] = useState(null);
+
+  const errorHandler = (err: any) => {
+    const errorData = err.response.data;
+    setError(
+      errorData.message
+        ? errorData.message[0].messages[0].message
+        : process.env.GLOBAL_ERROR_MESSAGE,
+    );
+  };
+
   const loginUser = (username: string, password: string) => {
     setError(null);
     return Axios.post('/auth/local', {
@@ -16,14 +27,7 @@ export function useAuth(): IUseAuth {
       password,
     })
       .then((res) => res.data)
-      .catch((err) => {
-        const errorData = err.response.data;
-        setError(
-          errorData.message
-            ? errorData.message[0].messages[0].message
-            : process.env.GLOBAL_ERROR_MESSAGE,
-        );
-      });
+      .catch((err) => errorHandler(err));
   };
 
   const forgotPassword = (email: string) => {
@@ -32,19 +36,31 @@ export function useAuth(): IUseAuth {
       email,
     })
       .then((res) => res.data)
-      .catch((err) => {
-        const errorData = err.response.data;
-        setError(
-          errorData.message
-            ? errorData.message[0].messages[0].message
-            : process.env.GLOBAL_ERROR_MESSAGE,
-        );
-      });
+      .catch((err) => errorHandler(err));
+  };
+
+  const signUp = (
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+  ) => {
+    setError(null);
+    return Axios.post('/auth/local/register', {
+      firstName,
+      lastName,
+      email,
+      password,
+      username: email,
+    })
+      .then((res) => res.data)
+      .catch((err) => errorHandler(err));
   };
 
   return {
     loginUser,
     forgotPassword,
+    signUp,
     error,
   };
 }
