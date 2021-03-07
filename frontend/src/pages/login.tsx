@@ -2,6 +2,7 @@ import { Center, Flex, useColorModeValue, useToken, Image } from '@chakra-ui/rea
 import React from 'react';
 import { ForgottenPasswordForm } from '../components/LoginPage/ForgottenPasswordForm';
 import { LoginForm } from '../components/LoginPage/LoginForm';
+import { NewAccountForm } from '../components/LoginPage/NewAccountForm';
 
 const LoginPage = (): JSX.Element => {
   const bgColor = useColorModeValue('gray.200', 'gray.700');
@@ -22,7 +23,8 @@ const LoginPage = (): JSX.Element => {
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
         {/* <LoginForm /> */}
-        <ForgottenPasswordForm />
+        {/* <ForgottenPasswordForm /> */}
+        <NewAccountForm />
       </Flex>
     </Center>
   );
