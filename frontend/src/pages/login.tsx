@@ -1,6 +1,5 @@
-import { Center, Flex, useColorModeValue, useToken, Image } from '@chakra-ui/react';
+import { Center, Flex, useColorModeValue, useToken, Image, Box } from '@chakra-ui/react';
 import { useRouter } from 'next/dist/client/router';
-import React from 'react';
 import { LoginPageSections } from '../@types/global';
 import { ForgottenPasswordForm } from '../components/LoginPage/ForgottenPasswordForm';
 import { LoginForm } from '../components/LoginPage/LoginForm';
@@ -27,13 +26,15 @@ const LoginPage = (): JSX.Element => {
         <Center flex="0 0 50%" bg={`linear-gradient(45deg, ${purple500}, ${purple200})`}>
           <Image src="/img/xStocksLogo.png" maxW="180px" />
         </Center>
-        {sectionQuery === LoginPageSections.ForgotPassword ? (
-          <ForgottenPasswordForm />
-        ) : sectionQuery === LoginPageSections.NewAccount ? (
-          <NewAccountForm />
-        ) : (
-          <LoginForm />
-        )}
+        <Box w="100%" p="4">
+          {sectionQuery === LoginPageSections.ForgotPassword ? (
+            <ForgottenPasswordForm />
+          ) : sectionQuery === LoginPageSections.NewAccount ? (
+            <NewAccountForm />
+          ) : (
+            <LoginForm />
+          )}
+        </Box>
       </Flex>
     </Center>
   );

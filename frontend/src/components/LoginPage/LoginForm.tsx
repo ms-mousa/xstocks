@@ -8,6 +8,7 @@ import {
   Flex,
   Alert,
   AlertIcon,
+  ScaleFade,
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
 import { useRouter } from 'next/dist/client/router';
@@ -23,6 +24,8 @@ export const LoginForm = (): JSX.Element => {
   const { loginUser, error } = useAuth();
   const { notifySuccess } = useNotifications();
   const router = useRouter();
+  const { section } = router.query;
+  const sectionQuery = section?.toString();
 
   const handleSubmit = async (values: FormikValues) => {
     const res = await loginUser(values.username, values.password);
@@ -33,7 +36,13 @@ export const LoginForm = (): JSX.Element => {
   };
 
   return (
-    <Box w="100%" p="4">
+    <ScaleFade
+      in={
+        !Object.values<LoginPageSections | string | undefined>(
+          LoginPageSections,
+        ).includes(sectionQuery)
+      }
+    >
       <Box my="4" textAlign="center">
         <Heading size="md" fontWeight="bold">
           Welcome!
@@ -107,6 +116,6 @@ export const LoginForm = (): JSX.Element => {
           </Form>
         )}
       </Formik>
-    </Box>
+    </ScaleFade>
   );
 };
