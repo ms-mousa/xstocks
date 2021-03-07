@@ -7,9 +7,11 @@ import {
   Stack,
   Alert,
   AlertIcon,
+  IconButton,
 } from '@chakra-ui/react';
 import { Form, Formik, FormikValues } from 'formik';
-import { FiAlertTriangle, FiMail } from 'react-icons/fi';
+import { FiAlertTriangle, FiArrowLeft, FiMail } from 'react-icons/fi';
+import { navigateToLoginPageSection } from '../../helpers/router';
 import { useAuth } from '../../hooks/useAuth';
 import { useNotifications } from '../../hooks/useNotifications';
 import { passwordResetSchema } from '../../lib/formSchemas';
@@ -31,6 +33,14 @@ export const ForgottenPasswordForm = (): JSX.Element => {
 
   return (
     <Stack justify="center" w="100%" p="4">
+      <IconButton
+        mb="1"
+        alignSelf="flex-start"
+        aria-label="Back button"
+        variant="link"
+        icon={<FiArrowLeft />}
+        onClick={() => navigateToLoginPageSection()}
+      />
       <Box my="4" textAlign="center">
         <Heading size="md" fontWeight="bold">
           Reset your password!
