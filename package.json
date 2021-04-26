@@ -16,7 +16,11 @@
     "devBackend": "yarn workspace @xstocks/backend develop",
     "devFrontend": "yarn workspace @xstocks/frontend dev",
     "clean": "rimraf ./node_modules */node_modules",
-    "refresh": "rimraf ./node_modules */node_modules && yarn install"
+    "refresh": "rimraf ./node_modules */node_modules && yarn install",
+    "build-backend": "yarn workspace @xstocks/backend NODE_ENV=production npm run build",
+    "start-backend": "yarn workspace @xstocks/backend NODE_ENV=production npm run start",
+    "build": "yarn workspace @xstocks/frontend build",
+    "start": "yarn workspace @xstocks/frontend start"
   },
   "dependencies": {
     "react": "^17.0.1",
