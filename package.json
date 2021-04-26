@@ -17,8 +17,8 @@
     "devFrontend": "yarn workspace @xstocks/frontend dev",
     "clean": "rimraf ./node_modules */node_modules",
     "refresh": "rimraf ./node_modules */node_modules && yarn install",
-    "build-backend": "yarn workspace @xstocks/backend NODE_ENV=production npm run build",
-    "start-backend": "yarn workspace @xstocks/backend NODE_ENV=production npm run start",
+    "build-backend": "NODE_ENV=production yarn workspace @xstocks/backend build",
+    "start-backend": "NODE_ENV=production yarn workspace @xstocks/backend start",
     "build": "yarn workspace @xstocks/frontend build",
     "start": "yarn workspace @xstocks/frontend start"
   },
